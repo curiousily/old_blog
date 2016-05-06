@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pelican content
+ghp-import output
+git push git@github.com:curiousily/curiousily.github.com.git gh-pages:master

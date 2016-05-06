@@ -1,0 +1,8 @@
+.DS_Store
+.python-version
+.ropeproject/
+__pycache__/
+_nb_header.html
+output/
+plugins/
+themes/
