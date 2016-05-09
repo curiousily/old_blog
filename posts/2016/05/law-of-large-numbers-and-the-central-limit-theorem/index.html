@@ -11790,13 +11790,13 @@ jQuery(document).ready(function($) {
 <link rel="canonical" href="http://curiousily.com/posts/2016/05/law-of-large-numbers-and-the-central-limit-theorem/">
 
         <meta name="author" content="Venelin Valkov" />
-        <meta name="description" content="In [ ]:" />
+        <meta name="description" content="Ivan won the lottery today! Life can be really good now! But he is smart. He heard that there is an easy way to make even more money by creating his own startup. He doesn&#39;t know what this means but his friend Tonny is making a lot of money ..." />
 
         <meta property="og:site_name" content="Curiousily" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Experiments in Probability Part III: Law of Large Numbers and The Central Limit Theorem"/>
         <meta property="og:url" content="http://curiousily.com/posts/2016/05/law-of-large-numbers-and-the-central-limit-theorem/"/>
-        <meta property="og:description" content="In [ ]:"/>
+        <meta property="og:description" content="Ivan won the lottery today! Life can be really good now! But he is smart. He heard that there is an easy way to make even more money by creating his own startup. He doesn&#39;t know what this means but his friend Tonny is making a lot of money ..."/>
         <meta property="article:published_time" content="2016-05-09" />
             <meta property="article:section" content="Probability" />
             <meta property="article:author" content="Venelin Valkov" />
@@ -11874,6 +11874,88 @@ Curiousily            </a>
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ivan won the lottery today! Life can be really good now! But he is smart. He heard that there is an easy way to make even more money by creating his own <strong>startup</strong>. He doesn't know what this means but his friend Tonny is making a lot of money from his. How hard can it be?</p>
+<p>Now, he just needs an idea for a product, really cool one! It must be really innovative, he says to himself! An idea comes in a flash: he always wanted his own casino!</p>
+<p>Ivan is sure of one thing, he must start with a roulette. After all, every respectable casino has a roulette (even in his own country). But will he make money from it?</p>
+<p>Ivan went to the <strong>candy shop</strong> (nope, not that one, might want to try a Tor search) and found two different types of roulletes. The <em>European</em> version (on the left) has 37 pockets with 18 of them red, 18 of them black and <em>1</em> green. While the <em>American</em> version (on the right) has 38 pockets with 18 of them red, 18 of them black and <em>2</em> greens.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="http://datagenetics.com/blog/july12015/wh.png" style="width: 520px;"></p>
+<h5 align="center">Image courtesy of <a href="http://datagenetics.com/index.html" target="_blank">datagenetics</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A single question kept him awake that night: With which one I will make more money? Moreover, how can I be sure?</p>
+<p>Of course Ivan had heard that the <em>American</em> is more profitable because it had one more spot on which the gamblers can't put money on. But was this really true? Can he test it with those particular roulettes?</p>
+<p>First thing in the morning he bought two roulette wheels (one of each kind) and started preparing for an experiment. It was gonna be a long day!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ivan put the two roulette wheels next to each other and started placing a bet and spinning each wheel. He simplified things a bit and allow himself to bet on either red or black. To choose his bet he throws a fair coin so that the probability of placing a red bet is 50% and that of placing a bet on black is 50%.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Law-of-Large-Numbers">Law of Large Numbers<a class="anchor-link" href="#Law-of-Large-Numbers">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A famous result Ivan heard about is the Law of Large Numbers. Simply put the law states that if you repeat a random experiment, many, many, many times, your outcomes should on average be equal to the theoretical average.</p>
+<p>For example, if you toss a fair coin you can't predict how many heads and tails you'll get. But your estimate might be 50 heads and 50 tails since you believe that the coin is fair (What if you get 100 heads and 0 tails?). The law of large numbers tells us that the more samples we take (i.e. more times we throw the coin) the more accurate our result will be.</p>
+<p>More formal definition by <a href="http://mathworld.wolfram.com/LawofLargeNumbers.html">Wolfram</a> is:</p>
+<blockquote><p>A "law of large numbers" is one of several theorems expressing the idea that as the number of trials of a random process increases, the percentage difference between the expected and actual values goes to zero.</p>
+</blockquote>
+<h2 id="Definition">Definition<a class="anchor-link" href="#Definition">&#182;</a></h2><p>Given a random variable $X$ and it's expected value $E(X)$. If we take a sample of $n$ observations from $X$ and average it $\overline{X_n}=\frac{x_1+x_2+...+x_n}{n}$ then $\overline{X_n} \rightarrow E(X)$ for $n \rightarrow \infty$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>References</p>
+<ul>
+<li><a href="http://mathforum.org/library/drmath/view/52799.html">Dr. Math on Law of Large Numbers</a></li>
+</ul>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
