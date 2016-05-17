@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'Venelin Valkov'
+AUTHOR = 'Curiousily'
 SITENAME = 'Curiousily'
 SITESUBTITLE = 'The curious quest of one fooled by randomness'
 SITEURL = 'http://curiousily.com'
