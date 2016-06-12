@@ -11930,9 +11930,14 @@ Curiousily            </a>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You got it? Well I certainly didn't but it was a lof of fun. Now let's find out what MCMC is.</p>
+<h1 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">&#182;</a></h1><ul>
+<li>Markov chains</li>
+<li>Stationary distributions</li>
+<li>Bayes rule</li>
+</ul>
 <h1 id="So-what-is-Markov-Chain-Monte-Carlo-(MCMC)?">So what is Markov Chain Monte Carlo (MCMC)?<a class="anchor-link" href="#So-what-is-Markov-Chain-Monte-Carlo-(MCMC)?">&#182;</a></h1><p><img src="http://library.stjosephsea.org/mountainsman.gif" style="width: 420px;"></p>
 <h5 align="center">Image courtesy of <a href="http://www.pppst.com/clipart.html" target="_blank">Pete's Power Point Station 
-</a></h5><p>A mountain climber was fascinated by a new and pretty vast (by the looks of it) mountain. He decided to spend a day trying to find/climb the tallest peak and take the most beutiful pictures from there. He also wanted to fully explore the mountain, just in case that other marvelous places are hidden within it and deserve his attention.</p>
+</a></h5><p>A mountain climber was fascinated by a new and pretty vast (by the looks of it) mountain. He decided to spend a day trying to find/climb the tallest peak and take the most beautiful pictures from there. He also wanted to fully explore the mountain, just in case that other marvelous places are hidden within it and deserve his attention.</p>
 <p>He decided on a simple strategy - the time that he is going to spend on a peak is proportional to it's height. Given 2 peaks A and B and the height of peak B is 2 times that of A, the climber is going to spend 2 times more time on B than on A.</p>
 <p>When deciding where to go next he would pick probabilities for the two possible actions he could take (proportional on the current spot height) - stay at the current spot or move. He would calculate acceptance probability by dividing the that of moving by the one of staying, pick a random number in the range [0, 100] and if the acceptance probability is larger than the random number he would indeed move to a new position.</p>
 <p>That way he would explore a lot and spend as much time as possible on taller peaks (just because when he was in lower areas his view was more likely to blocked by the higher peaks around). He did that and it was quite successful endeavour. But why?</p>
@@ -11945,8 +11950,101 @@ Curiousily            </a>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="https://cdn.vectorstock.com/i/composite/23,35/cartoon-gangster-flipping-a-coin-vector-7112335.jpg" style="width: 360px;"></p>
+<h2 id="Definition">Definition<a class="anchor-link" href="#Definition">&#182;</a></h2><p>Method for generating samples from posterior distribution by creating Markov Chain with stationary distribution equal to the target distribution. As the number of simulation steps increases the quality of the sample improves.</p>
+<p>More formally, <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">Wikipedia</a> define it as follows:</p>
+<blockquote><p>Markov chain Monte Carlo (MCMC) methods are a class of algorithms for sampling from a probability distribution based on constructing a Markov chain that has the desired distribution as its equilibrium distribution. The state of the chain after a number of steps is then used as a sample of the desired distribution. The quality of the sample improves as a function of the number of steps.</p>
+</blockquote>
+<h2 id="Why-do-we-need-MCMC?">Why do we need MCMC?<a class="anchor-link" href="#Why-do-we-need-MCMC?">&#182;</a></h2><p>The Bayes Rule states:</p>
+$$P(\theta|x) = \frac{P(x|\theta) P(\theta)}{P(x)}$$<p>The $P(x|\theta)$ (likelihood) x $P(\theta)$ (prior) part, is pretty easy to compute. However, $P(x)$ can be computed by integrating over all possible parameter values:</p>
+$$P(x) = \int_\Theta P(x, \theta) \, \mathrm{d}\theta$$<p>But that turns out to be surprisingly hard to do. But (counter intuitively as it sounds) we can construct a Markov Chain with stationary distribution equal to that of the posterior distribution of interest.</p>
+<h2 id="Metropolis-hastings-algorithm">Metropolis hastings algorithm<a class="anchor-link" href="#Metropolis-hastings-algorithm">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Example-(with-Python)">Example (with Python)<a class="anchor-link" href="#Example-(with-Python)">&#182;</a></h1><p>Ivan was spending his weekend in the neighbourhood and decided to take a walk, check things around. When he neared the corner of his house, a guy in tuxedo was promoting a game. He was shouting: "Easy money! Try your luck! Only in the next 10 minutes!"</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://cdn.vectorstock.com/i/composite/23,35/cartoon-gangster-flipping-a-coin-vector-7112335.jpg" style="width: 320px;"></p>
 <h5 align="center">Image courtesy of <a href="http://kenbennerillustration.weebly.com/" target="_blank">Ken Benner</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ivan, curious as he was, decided to ask about the rules of the game. The man told him the following: "I will give you this coin. Your task is to toss it 100 times in under 5 minutes. Every time the coin lands heads I'll give you 70 cents. Every time it lands tails I'll take 40 cents from you."</p>
+<p>Wasn't this the luckiest day in Ivan's life? Every sucker knew that the probability of seeing heads after a coin flip was 50%. So he quickly pullled out his calculator and entered something along the following:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flips</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">heads</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">flips</span>
+<span class="n">tails</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">flips</span>
+<span class="p">(</span><span class="n">heads</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">tails</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>15.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>15 bucks in less than 5 minutes, what a deal! Ivan knew perfectly well that 100 tosses in under 5 minutes was something he could do, his biceps were so well trained...</p>
+<p>After about 4 minutes of coin tossing the man in the tuxedo announced that Ivan was owing him 7 bucks. He only got 30 heads and the wooping 70 tails. You could only imagine what was Ivan's face like. You are in luck, you can see it here:</p>
+<p><img src="https://i1.wp.com/growingupanchorage.com/wp-content/uploads/2015/02/dreamstime_xs_41099939.jpg" style="width: 360px;"></p>
+<h5 align="center">Image courtesy of <a href="http://growingupanchorage.com/" target="_blank">Growing Up Anchorage</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>But Ivan was man of his word. He paid the man 7 bucks and left the scene quickly. But what happened? Was Ivan just unlucky?</p>
+<p>From not far away, another man was watching. His name was Peter and he was too considering playing the game. However, he just witnessed what happened to Ivan. He pulled out a random coin from his pocket and tossed it 100 times. He got 57 heads and 43 tails.</p>
+<p>Peter pulled out his laptop and typed the following MCMC program:</p>
+
 </div>
 </div>
 </div>
@@ -11977,19 +12075,6 @@ Curiousily            </a>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>1 heads, 0 tails</p>
-<p>70 cents for heads</p>
-<p>-40 cents for tails</p>
-<p>100 coin flips</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
