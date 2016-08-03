@@ -11961,6 +11961,15 @@ pandas 0.18.1
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
@@ -16023,7 +16032,7 @@ Probability of getting the observed mean difference by chance is 0.1956
 <p>That is the probability of getting the observed mean difference by chance is 20%. So one might conclude that this difference is a bit iffy.</p>
 <h4 id="Back-to-the-matter-at-hand.-What-if-the-last-period-was-with-duration-27-days?">Back to the matter at hand. What if the last period was with duration 27 days?<a class="anchor-link" href="#Back-to-the-matter-at-hand.-What-if-the-last-period-was-with-duration-27-days?">&#182;</a></h4><p>We are interested in the following probability:</p>
 $$\tag{1} P(\theta\,|\,\text{last cycle was 27 days}) = P(\text{last cycle was 27 days}\,|\,\theta) \, P(\theta)$$<p>for each $\theta$ where $\theta$ can be one of the following values: 24, 25, 26 or 27.</p>
-<p>Let bootstrap some samples from our dataset with previous cycle duration of 27 days and use that as a likelihood. We will use the bootstrapped samples from the whole dataset as prior distribution.</p>
+<p>Lets bootstrap some samples from our dataset with previous cycle duration of 27 days and use that as a likelihood. We will use the bootstrapped samples from the whole dataset as prior distribution.</p>
 
 </div>
 </div>
@@ -17046,6 +17055,27 @@ VaAAlhBCCCGEEEJIVaAAlhBCCCGEEEJIVaAAlhBCCCGEEEJIVaAAlhBCCCGEEEJIVfj/SbdVs1wG
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Given this information, Ivan thought - "the bigger the better". He bought tickets for 26 days from today and went to bed with a smile on his face.</p>
 <p>To his surprise (and hopefully not yours) Maria's cycle started just as they as their vacation began. They still had a great time, though. And the student who did the analysis was returned to his home country due to "missing or incomplete grandmother birth certificate". Which of course deserve a blog post on his own.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Further-work">Further work<a class="anchor-link" href="#Further-work">&#182;</a></h1><ul>
+<li>Probably a lot more features (like age, ethnicity, medications used) can be explored/used to build a model. </li>
+<li>No real model accuracy evaluation was done. How about some cross-validation? </li>
+<li>What if another female gave her data? How can this be included?</li>
+</ul>
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><ul>
+<li><a href="https://speakerdeck.com/jakevdp/statistics-for-hackers">Statistics for Hackers by Jake VanderPlas</a></li>
+<li><a href="https://www.amazon.com/Statistics-Synthesis-Lectures-Mathematics-Paperback/dp/B010WEMHM2">Statistics is Easy! (2nd edition)</a></li>
+<li><a href="https://www.amazon.com/Resampling-statistics-Julian-Lincoln-Simon/dp/0534217206">Resampling: The New Statistics</a></li>
+<li><a href="https://stats.stackexchange.com/questions/26088/explaining-to-laypeople-why-bootstrapping-works">Explaining to laypeople why bootstrapping works</a></li>
+<li><a href="https://www.stat.auckland.ac.nz/~wild/BootAnim/">Bootstrap animations</a></li>
+</ul>
 
 </div>
 </div>
