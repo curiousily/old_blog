@@ -11936,7 +11936,7 @@ Curiousily            </a>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Ok, you got me! I don't really know and for that matter, nobody really does. But that is not really useful answer now, is it? Let's try that again: Deep Learning is a branch of Machine Learning that tries to move us closer to AI (or General AI). One can simplify things a bit and say: an Artificial Neural Network (ANN) with more than 1 hidden layer. Let's take a look at one ANN:</p>
 <p><img src="http://neuralnetworksanddeeplearning.com/images/tikz41.png" style="width: 520px;"></p>
-<h5 align="center">Image courtesy of <a href="http://neuralnetworksanddeeplearning.com" target="_blank">Neural Networks and Deep Learning</a></h5><p>A layer in ANN consists of a bunch of neurons. To make a network you stack several layers and connect them in some way (yes, there are different types of connections you can create). In this example, we have input layer with 8 neurons, 3 hidden layers with 9 neurons each and the output layer is comprised of 4 neurons.</p>
+<h5 align="center">Image courtesy of <a href="http://neuralnetworksanddeeplearning.com" target="_blank">Neural Networks and Deep Learning</a></h5><p>In this example, we have input layer with 8 neurons, 3 hidden layers with 9 neurons each and the output layer is comprised of 4 neurons.</p>
 <h1 id="Why-Deep-Learning-is-powerful/popular?">Why Deep Learning is powerful/popular?<a class="anchor-link" href="#Why-Deep-Learning-is-powerful/popular?">&#182;</a></h1><p>One hypothesis would be that big companies like Google, Facebook, Microsoft are constantly talking/showing demos about Deep Learning, but more importantly:</p>
 <ul>
 <li>The end of feature engineering? Automatically tries to learn good features or representations instead of manually creating them.</li>
@@ -12054,7 +12054,25 @@ Curiousily            </a>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Becoming-Deep-Learning-ninja">Becoming Deep Learning ninja<a class="anchor-link" href="#Becoming-Deep-Learning-ninja">&#182;</a></h1><p>Let's start by preparing the environment you need. You can install all libraries below using standard <code>pip install</code>. With one exception (of course) - TensorFlow. See how to <a href="https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html#pip-installation">install TensorFlow</a>.</p>
+<h1 id="Becoming-Deep-Learning-ninja">Becoming Deep Learning ninja<a class="anchor-link" href="#Becoming-Deep-Learning-ninja">&#182;</a></h1><p>Deep Learning is all about training ANNs for various supervised, unsupervised and semi-supervised tasks. So, let's discuss what makes ANNs tick.</p>
+<h2 id="Components-of-a-Neural-Network">Components of a Neural Network<a class="anchor-link" href="#Components-of-a-Neural-Network">&#182;</a></h2><h3 id="Neuron">Neuron<a class="anchor-link" href="#Neuron">&#182;</a></h3><p><img src="https://blogs.cornell.edu/info2040/files/2015/09/VqOpE-1c4xc4y.jpg" style="width: 520px;"></p>
+<h5 align="center">Image courtesy of <a href="https://blogs.cornell.edu/info2040/" target="_blank">INFO 2040</a></h5><p>The basic unit of any ANN is the artificial <strong>neuron</strong>. Each neuron has a vector of inputs $X = [x_1, x_2, ..., x_n]$, each of which has associated weight to it $W = [w_1, w_2, ..., w_n]$. The weights express the importance of each input to the output. One type of artificial neuron is the <strong>perceptron</strong>. The output of the perceptron (0 or 1) is determined by whether the weighted sum $\sum_j w_j x_j$ is larger or smaller than a <em>threshold</em> value.</p>
+$$\begin{eqnarray}
+  \mbox{output} & = & \left\{ \begin{array}{ll}
+      0 & \mbox{if } \sum_j w_j x_j \leq \mbox{ threshold} \\
+      1 & \mbox{if } \sum_j w_j x_j > \mbox{ threshold}
+      \end{array} \right.
+\tag{1}\end{eqnarray}$$<p>But now let's move the <em>threshold</em> on the other side of the inequality and call it (cause why not?) <em>bias</em> b. Now we have:</p>
+$$\begin{eqnarray}
+  \mbox{output} = \left\{ 
+    \begin{array}{ll} 
+      0 & \mbox{if } w\cdot x + b \leq 0 \\
+      1 & \mbox{if } w\cdot x + b > 0
+    \end{array}
+  \right.
+\tag{2}\end{eqnarray}$$<p>It is quite easy for a perceptron with a really big bias <em>b</em> to output 1. If <em>b</em> is very negative, the reverse is the case. It will be quite hard to make the perceptron output 0.</p>
+<h3 id="Layer">Layer<a class="anchor-link" href="#Layer">&#182;</a></h3><p>A layer in ANN consists of a bunch of neurons. To make a network you stack several layers and connect them in some way (yes, there are different types of connections you can create).</p>
+<p>Let's start by preparing the environment you need. You can install all libraries below using standard <code>pip install</code>. With one exception (of course) - TensorFlow. See how to <a href="https://www.tensorflow.org/versions/r0.10/get_started/os_setup.html#pip-installation">install TensorFlow</a>.</p>
 
 </div>
 </div>
